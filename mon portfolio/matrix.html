@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Alexandre Pernot BTS SIO</title>
+  <meta name="description" content="Mon super Portfolio !" />
+  <link rel="stylesheet" href="portfoalex.css">
+  <style>
+    /* Réinitialisation de base */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    body { 
+      background: #fff; 
+      font-family: Arial, sans-serif;
+      color: #111;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Le canvas est fixé en arrière-plan */
+    canvas#matrix { 
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      display: block; 
+    }
+
+    /* Conteneur pour rendre le texte lisible par-dessus l'animation */
+    .contenu-portfolio {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 35px 45px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(3px);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(217, 4, 41, 0.2); /* Légère bordure rougeâtre */
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      border-bottom: 2px solid #d90429; /* Rappel du rouge */
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 25px;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+      color: #000;
+      border-left: 4px solid #d90429; /* Rappel du rouge */
+      padding-left: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Fond animé Matrix -->
+  <canvas id="matrix"></canvas>
+
+  <!-- Contenu du Portfolio -->
+  <main class="contenu-portfolio">
+    <h1>PORTFOLIO ALEXANDRE PERNOT BTS SIO</h1>
+
+    <h2>À propos de moi</h2>
+    <p>
+      Je m'appelle Alexandre Pernot, j'ai 34 ans et je suis en reconversion professionnelle.<br>
+      Ancien aide-soignant, j'ai décidé de prendre la pilule rouge pour descendre dans le terrier du lapin blanc.<br>
+      Mon ancien métier m'a permis de développer certaines compétences comme la rigueur, le respect d'autrui et le sens du service.
+    </p>
+
+    <h2>Mon expérience professionnelle :</h2>
+    <ul>
+      <li><strong>BTS SIO reconversion professionnelle</strong> — CCI Campus (2026/2028)</li>
+      <li>
+        <strong>Aide-soignant</strong> — Clinique Du Diaconat | France | 03/2023 - 07/2026<br>
+        Soins à la personne, utilisation d'un ordinateur pour remplir des transmissions sous Windows.
+      </li>
+      <li>
+        <strong>Aide-soignant</strong> — Adecco Medical Mulhouse | France | 09/2022 - 01/2023 (5 mois)<br>
+        Missions d'aide-soignant.
+      </li>
+      <li>
+        <strong>Aide-soignant</strong> — Pôle De Gérontologie Saint-Damien | Mulhouse | 04/2021 - 09/2021 (6 mois)<br>
+        - Assister aux soins quotidiens des patients en phase de rééducation.<br>
+        - Accompagner les patients dans leurs activités de rétablissement.<br>
+        - Assurer la gestion de l'hygiène et du confort des patients.
+      </li>
+    </ul>
+
+    <h2>Objectifs professionnels</h2>
+    <p>Mes objectifs sont les suivants :</p>
+    <ul>
+      <li>Acquérir les bases informatiques nécessaires au bon développement du réseau.</li>
+      <li>Répondre aux demandes des utilisateurs en leur apportant des réponses concrètes.</li>
+      <li>Développer mes compétences au sein de l'entreprise pour devenir un partenaire opérationnel.</li>
+    </ul>
+
+    <h2>Mes Compétences</h2>
+    <ul>
+      <li>Changement de différents composants d'un ordinateur, qu'il soit fixe ou portable.</li>
+      <li>Prise en main à distance des différents postes de l'entreprise pour assister l'utilisateur.</li>
+    </ul>
+  </main>
+
+  <!-- Script de l'animation Matrix -->
+  <script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const fontSize = 16;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = new Array(columns).fill(0);
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘ';
+
+    function draw() {
+      // Fade blanc
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Couleur de la pluie : Rouge intense ("Pilule Rouge")
+      ctx.fillStyle = '#d90429';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 50);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+      drops = new Array(columns).fill(0);
+    });
+  </script>
+</body>
+</html>

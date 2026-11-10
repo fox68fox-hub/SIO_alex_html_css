@@ -1,0 +1,197 @@
+:root {
+    --absolute-space: 10px;
+}
+
+/* Remise à zéro */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles communs à tous les exemples et exercices */
+.exercice {
+    width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.exercice h2 {
+    background-color:  #333;
+    color: white;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.boite {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: #eee;
+}
+
+#partie1 {
+    margin-top: 50px;
+}
+
+/* Partie C */
+#exemple_relatif {
+ position: relative;
+ top: 25px;
+ left: 40px;
+ background-color: #aad4f5;
+ border: 1px solid black
+}
+
+#ex21_a {
+ /* Complétez */
+ background-color: #f5c6aa;
+ position: relative;
+ top: 50px;
+ left: 20px;
+}
+#ex21_b {
+ /* Complétez */
+ background-color: #aaf5c6;
+ position: relative;
+ top: 10px;
+
+}
+#ex21_c {
+ /* Complétez */
+ background-color: #c6aaf5;
+ position: relative;
+ right: 100px;
+}
+
+#ex22_b2 {
+ /* Complétez */
+ background-color: #f5e6aa;
+ position: relative;
+ top: 60px;
+}
+
+/* Partie D.2 */
+#exemple_absolu {
+ position: absolute;
+ top: 10px;
+ right: 0px;
+ width: 200px;
+ background-color: #f5aaaa;
+}
+
+/* Partie D.3 */
+#conteneur_relatif {
+ position: relative;
+ height: 150px;
+ border: 2px dashed #333;
+ background-color: #f0f0f0;
+ padding: 10px;
+}
+#enfant_absolu {
+ position: absolute;
+ top: 10px;
+ right: 10px;
+ width: 180px;
+ background-color: #aaf5aa;
+ border: 1px solid black;
+ padding: 5px;
+}
+
+#ex31_a {
+ /* Complétez */
+ background-color: #f5c6aa;
+  position: absolute;
+ top: 0; left: 0;
+ 
+}
+#ex31_b {
+ /* Complétez */
+ background-color: #aaf5c6;
+ position: absolute;
+ top: 0; right: 0;
+
+}
+
+#ex32_conteneur {
+position: relative;
+ width: 400px;
+ height: 200px;
+ background-color: #ddd;
+ border: 2px solid black;
+}
+#ex32_titre {
+ background-color: #f5aaaa;
+ padding: 5px;
+ position: absolute;
+ top: 0;
+ left:0;
+}
+#ex32_bouton {
+ position: absolute;
+ background-color: #aaf5aa;
+ padding: 5px;
+ border: 1px solid black;
+ bottom: 0;
+ right: 0;
+}
+#ex32_etiquette {
+position: absolute;
+ bottom: 0;
+ left: 0;
+ background-color: #aaaaff;
+ padding: 5px;
+}
+
+#ex33_conteneur {
+ /* Complétez */
+ position: relative;
+ height: 200px;
+ background-color: #eee;
+ border: 2px solid black;
+}
+#ex33_boite {
+ /* Complétez */
+ background-color: #f5c6aa;
+ position: absolute;
+ top: 20px;
+ bottom: 20px;
+ left: 20px;
+ right: 20px;
+
+}
+
+/* Partie E */
+#barre_fixe {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background-color: #333;
+ color: white;
+ padding: 8px;
+ text-align: center;
+}
+
+#ex41_bouton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    
+    background-color: #333;
+    color: white;
+
+    z-index: 9999;
+}
+
+#ex42_menu {
+ /* À compléter */
+}
+#ex42_menu ul {
+ list-style: none;
+ padding: 5px;
+}
+#ex42_menu li {
+ padding: 5px;
+ border-bottom: 1px solid #aaa;
+}
+

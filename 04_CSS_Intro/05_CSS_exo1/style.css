@@ -1,0 +1,39 @@
+h1 {
+    color: red;
+    background-color: black;
+    height: 150px;
+    width: 400px;
+    border-radius: 50px 50px 50px 50px;
+    border: 20px;
+    border-style: solid;
+    border-color: yellow;
+    text-align: center;
+    padding: 10px;
+      
+}
+
+h1:hover {
+    color: black;
+    background-color: red;
+}
+
+body {
+  /* Dégradé avec plusieurs couleurs */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  min-height: 100vh;
+  margin: 0;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
