@@ -149,3 +149,13 @@ body {
  padding: 10px 15px;
  font-weight: bold;
 }
+
+#ex7 .menu {
+    display: none;
+}
+
+@media screen (min-width: 768px) {
+    #ex7 .burger {
+        display: none;
+    }
+}
